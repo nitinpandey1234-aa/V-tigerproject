@@ -13,21 +13,16 @@ private drop:Locator;
    private website: Locator;
    private button:Locator
 
-
-
-
-
-
 constructor(private page: Page) {
     this.icon = this.page.getByTitle('Create Lead...');
     this.drop = this.page.locator('.small');
-    this.lastName = this.page.locator('input[name="lastname"]');
+    this.lastName = this.page.locator('//input[@name="lastname"]');
     this.company = this.page.locator('//input[@name="company"]');
     this.title = this.page.locator('#designation');
     this.phone = this.page.locator('#phone');
     this.email = this.page.locator('#email');
     this.website = this.page.locator('input[name="website"]');
-    this.button = this.page.locator('input[title="Save"], input[value="Save"], button:has-text("Save")').first();
+    this.button = this.page.locator('//input[@value="  Save  "]').first();
 }
 
 async dropdown(){

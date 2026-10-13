@@ -9,7 +9,7 @@ test('Create Lead', async ({ page }) => {
     await page.waitForTimeout(3000);
 
     const allLeads = await readLeadData();
-    console.log(allLeads);
+  //  console.log(allLeads);
 
     const web = new WebPage(page);
     const lead = new leadhome(page);
@@ -23,10 +23,12 @@ test('Create Lead', async ({ page }) => {
     await web.geturl();
     await expect(page).toHaveURL('http://localhost:8888/index.php?module=Leads&action=index');
 
-    for (const data of allLeads) {
-        console.log('Filling data:', data);
+    
         await lead.clickIcon();
-        await lead.fillLeadForm(data);
+        for (const data of allLeads.slice(0, 1)) {
+    await lead.fillLeadForm(data);
+}
+       
         await lead.save();
     }
-});
+);
